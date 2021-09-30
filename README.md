@@ -11,7 +11,7 @@ Examples: index.html
 
 This is how the component looks like:
 
-![Screenshot](https://github.com/miltonlaufer/reactiveframeworkjs/blob/master/screenshots/screenshot.png)
+![Screenshot](https://github.com/miltonlaufer/reactiveframeworkjs/blob/main/screenshots/component.png)
 
 
 
