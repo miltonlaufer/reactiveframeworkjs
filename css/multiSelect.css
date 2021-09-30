@@ -1,0 +1,253 @@
+:root {
+    --multiSelect-color: #349def;
+    --multiSelect-color-hover: #349def10;
+    --multiSelect--circle-background-color: #349def20;
+    --multiSelect--tick-color: #349def7a;
+}
+
+.multiSelect__container input, .multiSelect__container button {
+    outline-width: 0;
+}
+
+.multiSelect__container {
+    box-shadow: #e0dbdb 0 8px 8px -1px;
+    width: 430px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #f5f5f5;
+    padding: 0 30px;
+}
+
+.multiSelect__header {
+    height: 84px;
+    display: flex;
+    justify-content: left;
+    position: relative;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.multiSelect__header h2 {
+    font-size: 1.2em;
+    color: #444;
+}
+
+.multiSelect__footer {
+    order: 99;
+    justify-content: flex-end;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.multiSelect__footer button {
+    margin-left: 10px;
+    padding: 10px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.multiSelect__footer button:active {
+    border: 0;
+}
+
+.multiSelect__footer button:hover {
+    box-shadow: #5e5e5e 0px 2px 4px -1px;
+}
+
+
+.multiSelect__footer button.multiSelect__submit {
+    background-color: var(--multiSelect-color);
+    color: white;
+}
+
+.multiSelect__footer button.multiSelect__cancel {
+    background-color: transparent;
+    color: var(--multiSelect-color);
+}
+
+.multiSelect__header .multiSelect__close:before {
+    position: absolute;
+    right: 0px;
+    content: "x";
+    cursor: pointer;
+}
+
+.multiSelect__container ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    max-height: 314px;
+    overflow-y: auto;
+}
+
+.multiSelect__container ul::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+.multiSelect__container ul::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+
+.multiSelect__container ul::-webkit-scrollbar-thumb {
+    background: var(--multiSelect--circle-background-color);
+    border: 0px none #ffffff;
+    border-radius: 50px;
+}
+
+.multiSelect__container ul::-webkit-scrollbar-thumb:hover {
+    background: var(--multiSelect--circle-background-color);
+}
+
+.multiSelect__container ul::-webkit-scrollbar-thumb:active {
+    background-color: var(--multiSelect-color-hover);
+}
+
+.multiSelect__container ul::-webkit-scrollbar-track {
+    background: var(--multiSelect--circle-background-color);
+    border: 0px none #ffffff;
+    border-radius: 78px;
+}
+
+.multiSelect__container ul::-webkit-scrollbar-track:hover {
+    background: var(--multiSelect--circle-background-color);
+}
+
+.multiSelect__container ul::-webkit-scrollbar-track:active {
+    background: var(--multiSelect--circle-background-color);
+}
+
+.multiSelect__container ul::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+.multiSelect__container li {
+    list-style: none;
+    border-top: 1px #f5f5f5 solid;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    justify-content: flex-start;
+}
+
+.multiSelect__container li:hover {
+    background-color: var(--multiSelect-color-hover);
+    cursor: pointer;
+}
+
+.multiSelect__container li.selected .multiSelect__option__text span{
+    color: var(--multiSelect-color);
+}
+
+.multiSelect__container li .multiSelect__option__text {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    }
+
+.multiSelect__container li .multiSelect__option__text span:first-child {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.multiSelect__container li span.multiSelect__option__tick {
+    -webkit-mask-image: url(../elems/plus.svg);
+    mask-image: url(../elems/plus.svg);
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: var(--multiSelect--tick-color);
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    margin-right: 10px;
+}
+
+.multiSelect__container li.selected span.multiSelect__option__tick,
+.multiSelect__container li.selected:hover span.multiSelect__option__tick {
+    -webkit-mask-image: url(../elems/tick.svg);
+    mask-image: url(../elems/tick.svg);
+    background-color: var(--multiSelect-color);
+}
+
+.multiSelect__container li:hover span.multiSelect__option__tick {
+    -webkit-mask-image: url(../elems/plus.svg);
+    mask-image: url(../elems/plus.svg);
+    background-color: var(--multiSelect-color);
+}
+
+.multiSelect__icn-find:after {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    display: block;
+    content: "\26B2";
+}
+
+.multiSelect__option__circle {
+    background-color: var(--multiSelect--circle-background-color);
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--multiSelect-color);
+    margin-right: 15px;
+    margin-left: 10px;
+}
+
+.custom-searchableInput--wrapper {
+    display: flex;
+}
+
+.custom-searchableInput {
+    width: 100%;
+    height: 27px;
+    font-family: "Arial", serif;
+    border-top: #d0d0d0 1px solid;
+    border-left: #d0d0d0 1px solid;
+    border-bottom: #d0d0d0 1px solid;
+    border-right: 0;
+    color: inherit;
+    padding: 10px;
+}
+
+.custom-searchableInput:active, .custom-searchableInput:focus {
+    border-top: #d0d0d0 1px solid;
+    border-left: #d0d0d0 1px solid;
+    border-bottom: #d0d0d0 1px solid;
+    border-right: 0;
+}
+
+.custom-searchableInput--magnifier--wrapper {
+    border-top: #d0d0d0 1px solid;
+    border-left: 0;
+    border-bottom: #d0d0d0 1px solid;
+    border-right: #d0d0d0 1px solid;
+    height: 25px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    width: 18px;
+}
+
+.custom-searchableInput--magnifier:after {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    display: block;
+    content: "\26B2";
+}

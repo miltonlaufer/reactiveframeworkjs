@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XXXXX Test - Milton Laufer</title>
+    <style>
+
+        #main {
+            padding-top: 56px;
+        }
+
+        #container {
+            display: flex;
+            justify-content: space-around;
+            align-items: baseline;
+            margin: 80px;
+            flex-wrap: wrap;
+        }
+
+        body {
+            color: #4d504d;
+            font-family: "Arial", serif;
+        }
+
+        header {
+            padding: 0 86px;
+            border-bottom: 1px solid #4d504d;
+        }
+
+        h1 {
+            font-size: 3.0em;
+        }
+
+        #title {
+            margin-left: 82px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    </style>
+
+    <script type="module" src="js/multiSelect.js"></script>
+    <script type="module">
+        import {multiSelect} from "./js/multiSelect.js";
+
+        let myMultiSelect1, myMultiSelect2;
+        document.addEventListener("DOMContentLoaded", () => {
+            myMultiSelect1 = new multiSelect(
+                {
+                    data: {
+                        elements: [
+                            {text: 'Albert J. Rodenious', secondLine: 'arodenious@teneobio.com', value: '1'},
+                            {text: 'Devin Leake', secondLine: 'deleake@teneobio.com', value: '2'},
+                            {text: 'Hanna Soderstrom', secondLine: 'hsorderstrom@teneobio', value: '3'},
+                            {text: 'Nick Gold', secondLine: 'ngold@teneobio', value: '4'},
+                            {text: 'Mike Gray', secondLine: 'mgray@teneobio', value: '5'},
+                            {text: 'This will be deleted too', secondLine: 'mgray@teneobio', value: '15'},
+                            {text: 'Milton Läufer', secondLine: 'mlaufer@teneobio', value: '6'},
+                        ],
+                        formElementName: 'usersList',
+                        name: 'Testing'
+                    },
+                    elem: '#anotherMultiSelect',
+                    renderNow: true,
+                    name: 'selectorCreatedDynamically'
+                }
+            );
+
+            myMultiSelect2 = new multiSelect(
+                {
+                    data: {},
+                    elem: '#andAnotherMultiSelect',
+                    renderNow: true,
+                }
+            );
+
+            // Ways of adding to the components:
+            document.querySelector('#firstMultiSelect').multiSelect.addSingleElement('test');
+            document.querySelector('#firstMultiSelect').multiSelect.addSingleElement(
+                {text: 'Rubén Rodríguez', secondLine: 'ruben@rodiguez.com'}
+            );
+            document.querySelector('#firstMultiSelect').multiSelect.addSingleElement(
+                {text: 'Mirtha Rosemblaum', secondLine: 'mirtha@email.com'}
+            );
+            myMultiSelect2.setElements([
+                {text: 'Nick Gold', secondLine: 'ngold@teneobio', value: '4'},
+                {text: 'Mike Gray', secondLine: 'mgray@teneobio', value: '5'}
+            ]);
+
+            myMultiSelect2.addSingleElement({text: 'this will be deleted soon', value: 1});
+            myMultiSelect2.removeSingleElementByValue(1);
+
+            // Removing elements
+            myMultiSelect1.removeSingleElementByText('This will be deleted too');
+
+            // changing the color of a single component. You can also use "setAllColors" for all the components
+            myMultiSelect1.setColor('#149a14');
+            myMultiSelect2.setColor('#ff0000')
+
+            // Sets the callbacks
+            myMultiSelect1.setConfirmCallback((e) => {
+                e.preventDefault();
+                alert(`Confirm was clicked. These are the selected items:
+                ${JSON.stringify(myMultiSelect1.getSelectedElements())}`);
+            });
+
+            myMultiSelect1.setCancelCallback((e) => {
+                e.preventDefault();
+                alert('Cancel was clicked. This will unselect all items.');
+                myMultiSelect1.unselectElements();
+            });
+
+            document.querySelector('#firstMultiSelect').multiSelect.setConfirmCallback((e) => {
+                e.preventDefault();
+                alert(`Confirm was clicked. These are the selected items:
+                ${JSON.stringify(document.querySelector('#firstMultiSelect').multiSelect.getSelectedElements())}`);
+            });
+
+            document.querySelector('#firstMultiSelect').multiSelect.setCancelCallback((e) => {
+                e.preventDefault();
+                alert('Cancel was clicked. This will unselect all items.');
+                document.querySelector('#firstMultiSelect').multiSelect.unselectElements();
+            });
+        });
+    </script>
+</head>
+<body style="/*background-image: url('challenge/component.png')*/;background-size: 1920px 920px;">
+<header>
+    <h1>XXXXX Devs Test / UI Component Behaviour: Milton Laufer</h1>
+</header>
+<div id="main">
+    <div id="title">
+        Select Users From List
+    </div>
+    <form>
+        <div id="container">
+            <!-- THE COMPONENT CAN BE INSERTED AS AN HTML TAG -->
+            <multi-select name="myMulti" id="firstMultiSelect"
+                          elements="{'text':'María de los Ángeles','value':'10'}|{'text':'María de las Nieves','value':'20'}"></multi-select>
+            <!-- OR IN HTML ELEMENTS BY JAVASCRIPT -->
+            <div id="anotherMultiSelect"></div>
+            <div id="andAnotherMultiSelect"></div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
