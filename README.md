@@ -7,7 +7,7 @@ Reactive "framework": classes/component.js
 
 Component: js/multiSelect.js
 
-Examples: index.html
+Examples: index.html (you can see it working [here](https://www.miltonlaufer.com.ar/reactiveframeworkjs)  )
 
 This is how the component looks like:
 
