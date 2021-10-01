@@ -4,8 +4,8 @@ import {Component} from "../classes/component.js";
 
 /**
  * THIS EXAMPLE SHOWS HOW EASY IS TO BIND A DATA (this.state.data) TO AN ELEMENT
- * INPUT HTML ELEMENTS, WHEN THEY ARE BOUND TO CERTAIN DATA BY this.bindElementData('NAMEofDATA'..., objVarName
- * GET UPDATED AUTOMATICALLY
+ * INPUT HTML ELEMENTS, WHEN THEY ARE BOUND TO CERTAIN DATA BY this.bindElementData('NAMEofDATA'..., objVarName)
+ * EVERY OBJECT GETS UPDATED AUTOMATICALLY
  */
 
 
