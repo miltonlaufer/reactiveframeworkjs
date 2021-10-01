@@ -9,7 +9,7 @@ Component: js/multiSelect.js
 
 Examples: 
 * test.1.html: simple example of how to bind states (you can see it working [here](https://www.miltonlaufer.com.ar/reactiveframeworkjs/test.1.html))
-* index.html (you can see it working [here](https://www.miltonlaufer.com.ar/reactiveframeworkjs))
+* index.html: the component I had to create for the job (you can see it working [here](https://www.miltonlaufer.com.ar/reactiveframeworkjs))
 
 This is how the component looks like:
 
