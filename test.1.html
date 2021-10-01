@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XXXXX Test - Milton Laufer</title>
+    <style>
+
+        #main {
+            padding-top: 56px;
+        }
+
+        #container {
+            display: flex;
+            justify-content: space-around;
+            align-items: baseline;
+            margin: 80px;
+            flex-wrap: wrap;
+        }
+
+        body {
+            color: #4d504d;
+            font-family: "Arial", serif;
+        }
+
+        header {
+            padding: 0 86px;
+            border-bottom: 1px solid #4d504d;
+        }
+
+        h1 {
+            font-size: 3.0em;
+        }
+
+        #title {
+            margin-left: 82px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    </style>
+
+    <script type="module">
+        import {test} from "./js/test.1.js";
+
+        let testObj;
+
+        document.addEventListener("DOMContentLoaded", () => {
+            testObj = new test({
+                elem: '#test'
+            });
+        });
+    </script>
+</head>
+<body>
+<header>
+    <h1>JS Reactive "Framework": test</h1>
+</header>
+<div id="main">
+    <div id="title">
+        Test example
+    </div>
+    <form>
+        <div id="container">
+            <div id="test"></div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
